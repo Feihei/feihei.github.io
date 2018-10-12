@@ -118,8 +118,8 @@
             // Big clouds events
             var cloudBig = document.getElementsByClassName("cloud_big")
             for(var i of cloudBig){
-                i.addEventListener('mousedown',mousedownBig)
-                i.addEventListener('mouseup',mouseupBig)
+                i.addEventListener('touchstart',mousedownBig)
+                i.addEventListener('touchend',mouseupBig)
             }
             function mousedownBig(){
                 //this.style.fill = '#f2f5ff'
@@ -133,8 +133,8 @@
             var cloudMid = document.getElementsByClassName("cloud_mid")
             for(var i of cloudMid){
                 // console.log(i)
-                i.addEventListener('mousedown',mousedownMid)
-                i.addEventListener('mouseup',mouseupMid)
+                i.addEventListener('touchstart',mousedownMid)
+                i.addEventListener('touchend',mouseupMid)
             }
             function mousedownMid(){
                 //this.style.fill = '#f2f5ff'
@@ -148,8 +148,8 @@
             var cloudSmall = document.getElementsByClassName("cloud_small")
             for(var i of cloudSmall){
                 // console.log(i)
-                i.addEventListener('mousedown',mousedownSmall)
-                i.addEventListener('mouseup',mouseupSmall)
+                i.addEventListener('touchstart',mousedownSmall)
+                i.addEventListener('touchend',mouseupSmall)
             }
             function mousedownSmall(){
                 // this.style.fill = '#f2f5ff'
