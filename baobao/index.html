@@ -1,11 +1,177 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html>
 <head>
-    <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/p5.js></script>
-    <script src=baobao.js></script>
-    <title>baobao</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>~Bao Bao~</title>
+    <!--
+    <script src="./raphael.min.js"></script>
+    <script src="./snap.svg-min.js"></script>
+    -->
 </head>
 <body>
-    
+    <svg height = "2000" width = "2000" id = "svg" style="background-color: #d0e3f5">
+       <g
+        transform ="scale(9.5,9.5)"
+        id="g4582">
+         <path
+            id="path815"
+            d="m 36.818343,46.519815 c 0,0 0.02965,-8.317781 9.152016,-9.573065 9.122371,-1.255284 11.600513,5.429235 11.600513,5.429235 0,0 5.707155,-0.661459 6.711382,3.412435 1.004227,4.073894 -3.172027,5.485741 -3.172027,5.485741 0,0 -1.579537,4.114185 -6.025843,5.936434 -4.446307,1.822249 -8.652206,-0.521107 -8.652206,-0.521107 0,0 -3.585208,3.296165 -8.690191,2.337794 -5.104983,-0.958372 -5.302316,-4.332819 -5.302316,-4.332819 0,0 -4.940555,-1.743967 -2.802398,-5.769223 2.138156,-4.025257 7.18107,-2.405425 7.18107,-2.405425 z"
+            style="fill:#ffffff;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
+            class = "cloud_big" />
+         <path
+            style="fill:#ffffff;stroke:none;stroke-width:0.18452489px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
+            d="m 90.230731,79.208946 c 0,0 -0.352126,-5.334965 6.196372,-6.583218 6.548497,-1.248253 8.090397,3.227245 8.090397,3.227245 0,0 3.88707,-1.020508 4.68063,2.37989 0.79356,3.400398 -3.14422,3.825849 -3.14422,3.825849 0,0 -1.09029,2.755429 -5.1232,3.933097 -4.032931,1.177669 -6.145332,-0.627036 -6.145332,-0.627036 0,0 -5.211286,2.303714 -6.673674,-1.216272 -1.462389,-3.519988 2.119027,-4.939555 2.119027,-4.939555 z"
+            id="path817"
+            class = "cloud_mid" />
+         <path
+            id="path819"
+            d="m 52.216389,82.950719 c 0,0 -0.730101,-4.484518 4.873456,-5.543783 5.603557,-1.059265 6.578492,2.849268 6.578492,2.849268 0,0 3.88707,0.491397 2.790749,3.230337 -1.096321,2.73894 -6.734994,2.880908 -6.734994,2.880908 0,0 -6.700405,3.864518 -9.059765,0.955861 -2.35936,-2.908657 1.552062,-4.372591 1.552062,-4.372591 z"
+            style="fill:#ffffff;stroke:none;stroke-width:0.18452489px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
+            class = "cloud_small" />
+         <path
+            style="fill:#ffffff;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
+            d="m 109.92548,120.79102 c 0,0 0.85271,8.27402 -8.08507,10.48974 -8.937775,2.21572 -12.110912,-4.16826 -12.110912,-4.16826 0,0 -5.604805,1.26303 -7.03545,-2.68137 -1.430645,-3.9444 2.572318,-5.79123 2.572318,-5.79123 0,0 1.134277,-4.25851 5.362229,-6.54206 4.227964,-2.28354 8.658675,-0.39948 8.658675,-0.39948 0,0 3.21539,-3.65782 8.39323,-3.2463 5.17783,0.41153 5.73195,3.74602 5.73195,3.74602 0,0 5.09765,1.21012 3.39848,5.43945 -1.69918,4.22933 -6.88545,3.15349 -6.88545,3.15349 z"
+            id="path821"
+            class = "cloud_big" />
+         <path
+            id="path823"
+            d="m 126.42441,35.245579 c 0,0 1.15199,5.220991 -5.13364,7.441743 -6.28563,2.220753 -8.48431,-1.971305 -8.48431,-1.971305 0,0 -3.68892,1.594575 -4.9858,-1.647421 -1.29688,-3.241996 2.53183,-4.255948 2.53183,-4.255948 0,0 0.66264,-2.888257 4.47205,-4.660172 3.80942,-1.77192 6.16964,-0.306125 6.16964,-0.306125 0,0 4.80466,-3.062667 6.78075,0.19677 1.97609,3.259439 -1.35052,5.202458 -1.35052,5.202458 z"
+            style="fill:#ffffff;stroke:none;stroke-width:0.18452489px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
+            class = "cloud_mid" />
+         <path
+            style="fill:#fff;fill-opacity:0;stroke:#ffffff;stroke-width:1.32291667;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+            d="m 140.94987,87.494301 c 0,0 -0.7301,-4.484518 4.87346,-5.543783 5.60356,-1.059265 6.57849,2.849268 6.57849,2.849268 0,0 3.88707,0.491397 2.79075,3.230337 -1.09632,2.73894 -6.73499,2.880908 -6.73499,2.880908 0,0 -6.70041,3.864518 -9.05977,0.955861 -2.35936,-2.908657 1.55206,-4.372591 1.55206,-4.372591 z"
+            id="path827"
+            class = "cloud_small" />
+         <path
+            id="path845"
+            d="m 78.94334,23.616884 c 0,0 -0.7301,-4.484518 4.87346,-5.543783 5.60356,-1.059265 6.57849,2.849268 6.57849,2.849268 0,0 3.88707,0.491397 2.79075,3.230337 -1.09632,2.73894 -6.73499,2.880908 -6.73499,2.880908 0,0 -6.70041,3.864518 -9.05977,0.955861 -2.35936,-2.908657 1.55206,-4.372591 1.55206,-4.372591 z"
+            style="fill:#fff;fill-opacity:0;stroke:#ffffff;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+            class = "cloud_small" />
+         <path
+            id="path847"
+            d="m 174.95517,35.644013 c 0,0 -0.35212,-5.334965 6.19637,-6.583218 6.5485,-1.248253 8.0904,3.227245 8.0904,3.227245 0,0 3.88707,-1.020508 4.68063,2.37989 0.79356,3.400398 -3.14422,3.825849 -3.14422,3.825849 0,0 -1.09029,2.755429 -5.1232,3.933097 -4.03293,1.177669 -6.14533,-0.627036 -6.14533,-0.627036 0,0 -5.21129,2.303714 -6.67368,-1.216272 -1.46238,-3.519988 2.11903,-4.939555 2.11903,-4.939555 z"
+            style="fill:#fff;fill-opacity:0;stroke:#ffffff;stroke-width:1.32291667;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+            class = "cloud_mid" />
+         <path
+            style="fill:#ffffff;fill-opacity:1;stroke:none"
+            d="m 138.72787,53.356519 c 0,0 -0.7301,-4.484518 4.87346,-5.543783 5.60355,-1.059265 6.57849,2.849268 6.57849,2.849268 0,0 3.88707,0.491397 2.79075,3.230337 -1.09632,2.73894 -6.735,2.880908 -6.735,2.880908 0,0 -6.7004,3.864518 -9.05976,0.955861 -2.35936,-2.908657 1.55206,-4.372591 1.55206,-4.372591 z"
+            id="path849"
+            class = "cloud_small" />
+         <path
+            id="path851"
+            d="m 25.481568,141.77553 c 0,0 -0.7301,-4.48452 4.87346,-5.54379 5.60355,-1.05926 6.57849,2.84927 6.57849,2.84927 0,0 3.88707,0.4914 2.79075,3.23034 -1.09632,2.73894 -6.735,2.88091 -6.735,2.88091 0,0 -6.7004,3.86451 -9.05976,0.95586 -2.35936,-2.90866 1.55206,-4.37259 1.55206,-4.37259 z"
+            style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.18452489px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+            class = "cloud_small" />
+         <path
+            style="fill:#fff;fill-opacity:0; stroke:#ffffff;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+            d="m 41.301412,110.01114 c 0,0 -0.35212,-5.33497 6.19637,-6.58322 6.5485,-1.24825 8.0904,3.22724 8.0904,3.22724 0,0 3.88707,-1.0205 4.68063,2.37989 0.79356,3.4004 -3.14422,3.82585 -3.14422,3.82585 0,0 -1.09029,2.75543 -5.1232,3.9331 -4.03293,1.17767 -6.14533,-0.62704 -6.14533,-0.62704 0,0 -5.21129,2.30372 -6.67368,-1.21627 -1.46238,-3.51999 2.11903,-4.93955 2.11903,-4.93955 z"
+            id="path853"
+            class = "cloud_mid" />
+         <path
+            id="path855"
+            d="m 140.74467,122.23934 c 0,0 -0.35212,-5.33497 6.19637,-6.58322 6.5485,-1.24825 8.0904,3.22725 8.0904,3.22725 0,0 3.88707,-1.02051 4.68063,2.37989 0.79356,3.40039 -3.14422,3.82585 -3.14422,3.82585 0,0 -1.09029,2.75542 -5.1232,3.93309 -4.03293,1.17767 -6.14533,-0.62703 -6.14533,-0.62703 0,0 -5.21129,2.30371 -6.67368,-1.21628 -1.46238,-3.51998 2.11903,-4.93955 2.11903,-4.93955 z"
+            style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.18452489px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+            class = "cloud_mid" />
+         <path
+            style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+            d="m 73.166999,167.86018 c 0,0 0.02965,-8.31778 9.152016,-9.57306 9.122371,-1.25529 11.600513,5.42923 11.600513,5.42923 0,0 5.707155,-0.66146 6.711382,3.41244 1.00423,4.07389 -3.172027,5.48574 -3.172027,5.48574 0,0 -1.579537,4.11418 -6.025843,5.93643 -4.446307,1.82225 -8.652206,-0.52111 -8.652206,-0.52111 0,0 -3.585208,3.29617 -8.690191,2.3378 -5.104983,-0.95837 -5.302316,-4.33282 -5.302316,-4.33282 0,0 -4.940555,-1.74397 -2.802398,-5.76922 2.138156,-4.02526 7.18107,-2.40543 7.18107,-2.40543 z"
+            id="path859"
+            class = "cloud_big" />
+         <path
+            id="path861"
+            d="m 132.72658,154.84623 c 0,0 -0.35212,-5.33497 6.19637,-6.58322 6.5485,-1.24825 8.0904,3.22724 8.0904,3.22724 0,0 3.88707,-1.0205 4.68063,2.37989 0.79356,3.4004 -3.14422,3.82585 -3.14422,3.82585 0,0 -1.09029,2.75543 -5.1232,3.9331 -4.03293,1.17767 -6.14533,-0.62704 -6.14533,-0.62704 0,0 -5.21129,2.30372 -6.67368,-1.21627 -1.46238,-3.51999 2.11903,-4.93955 2.11903,-4.93955 z"
+            style="fill:#fff;fill-opacity:0; stroke:#ffffff;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+            class = "cloud_mid" />
+         <path
+            style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.18452489px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+            d="m 182.64392,91.770611 c 0,0 -0.7301,-4.48452 4.87346,-5.54378 5.60355,-1.05927 6.57849,2.84927 6.57849,2.84927 0,0 3.88707,0.49139 2.79075,3.23033 -1.09632,2.73894 -6.735,2.88091 -6.735,2.88091 0,0 -6.7004,3.86452 -9.05976,0.95586 -2.35936,-2.90865 1.55206,-4.37259 1.55206,-4.37259 z"
+            id="path863"
+            class = "cloud_small" />
+         <path
+            id="path865"
+            d="m 183.21288,137.41728 c 0,0 -0.35213,-5.33496 6.19637,-6.58322 6.5485,-1.24825 8.0904,3.22725 8.0904,3.22725 0,0 3.88707,-1.02051 4.68063,2.37989 0.79356,3.4004 -3.14422,3.82585 -3.14422,3.82585 0,0 -1.09029,2.75543 -5.1232,3.93309 -4.03294,1.17767 -6.14534,-0.62703 -6.14534,-0.62703 0,0 -5.21128,2.30371 -6.67367,-1.21627 -1.46239,-3.51999 2.11903,-4.93956 2.11903,-4.93956 z"
+            style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.18452489px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+            class = "cloud_mid" />
+         <path
+            id="path869"
+            d="m 16.217727,177.83061 c 0,0 -0.7301,-4.48452 4.87346,-5.54378 5.60356,-1.05927 6.57849,2.84927 6.57849,2.84927 0,0 3.88707,0.49139 2.79075,3.23033 -1.09632,2.73894 -6.73499,2.88091 -6.73499,2.88091 0,0 -6.70041,3.86452 -9.05977,0.95586 -2.35936,-2.90866 1.55206,-4.37259 1.55206,-4.37259 z"
+            style="fill:#fff;fill-opacity:0; stroke:#ffffff;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+            class = "cloud_small" />
+         <path
+            style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.18452489px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+            d="m 163.26893,170.51249 c 0,0 -0.7301,-4.48452 4.87346,-5.54379 5.60355,-1.05926 6.57849,2.84927 6.57849,2.84927 0,0 3.88707,0.4914 2.79075,3.23034 -1.09632,2.73894 -6.735,2.88091 -6.735,2.88091 0,0 -6.7004,3.86451 -9.05976,0.95586 -2.35936,-2.90866 1.55206,-4.37259 1.55206,-4.37259 z"
+            id="path887"
+            class = "cloud_small" />
+         <path
+            id="path888"
+            d="m 22.005945,21.698231 c 0,0 -0.7301,-4.484518 4.87346,-5.543783 5.60355,-1.059265 6.57849,2.849268 6.57849,2.849268 0,0 3.88707,0.491397 2.79075,3.230337 -1.09632,2.73894 -6.735,2.880908 -6.735,2.880908 0,0 -6.7004,3.864518 -9.05976,0.955861 -2.35936,-2.908657 1.55206,-4.372591 1.55206,-4.372591 z"
+            style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.18452489px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+            class = "cloud_small" />
+        </g>
+    </svg>
+    <script>
+        // var load = document.getElementById("svg");
+        window.onload = function(){
+            // Big clouds events
+            var cloudBig = document.getElementsByClassName("cloud_big")
+            for(var i of cloudBig){
+                i.addEventListener('mousedown',mousedownBig)
+                i.addEventListener('mouseup',mouseupBig)
+            }
+            function mousedownBig(){
+                //this.style.fill = '#f2f5ff'
+                document.getElementById('sound_low').play()
+            }
+            function mouseupBig(){
+                //this.style.fill = '#fff'
+                document.getElementById('sound_low').pause()
+            }
+            // Mid clouds events
+            var cloudMid = document.getElementsByClassName("cloud_mid")
+            for(var i of cloudMid){
+                // console.log(i)
+                i.addEventListener('mousedown',mousedownMid)
+                i.addEventListener('mouseup',mouseupMid)
+            }
+            function mousedownMid(){
+                //this.style.fill = '#f2f5ff'
+                document.getElementById('sound_mid').play()
+            }
+            function mouseupMid(){
+                //this.style.fill = '#fff'
+                document.getElementById('sound_mid').pause()
+            }
+            // Small clouds events
+            var cloudSmall = document.getElementsByClassName("cloud_small")
+            for(var i of cloudSmall){
+                // console.log(i)
+                i.addEventListener('mousedown',mousedownSmall)
+                i.addEventListener('mouseup',mouseupSmall)
+            }
+            function mousedownSmall(){
+                // this.style.fill = '#f2f5ff'
+                document.getElementById('sound_high').play()
+            }
+            function mouseupSmall(){
+                // this.style.fill = '#fff'
+                document.getElementById('sound_high').pause()
+            }
+        }
+    </script>
+    <audio id = "sound_high">
+        <source src = "./sounds/baobao_clouds_high.ogg" type="audio/ogg">
+        <source src = "./sounds/baobao_clouds_high.mp3" type="audio/mp3">
+    </audio>
+    <audio id = "sound_mid">
+        <source src = "./sounds/baobao_clouds_mid.ogg" type="audio/ogg">
+        <source src = "./sounds/baobao_clouds_mid.mp3" type="audio/mp3">
+    </audio>
+    <audio id = "sound_low">
+        <source src = "./sounds/baobao_clouds_low.ogg" type="audio/ogg">
+        <source src = "./sounds/baobao_clouds_low.mp3" type="audio/mp3">
+    </audio>
 </body>
 </html>
