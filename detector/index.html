@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Detector</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        @keyframes flash{
+            0%   {opacity: 0.1}
+            5%   {opacity: 1}
+            30%  {opacity: 1}
+            35%  {opacity: 0.1}
+        }
+        @keyframes alarm{
+            0% {opacity: 0.1}
+            30% {opacity: 1}
+            60% {opacity: 1}
+            90% {opacity: 0.1}
+        }
+        #indicator{
+            border-style: none;
+            border-radius: 50%;
+            width: 8px;
+            height: 8px;
+            background-color: #dd5;
+            margin: 10%;
+            opacity:0.1;
+            animation-name: flash;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
+        #alarmlight{
+            opacity: 0.1;
+            visibility: hidden;
+            width: 80%;
+            height: 80%;
+            margin: 10%;
+            animation-name: alarm;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+        }
+    </style>
+</head>
+<body>
+    <div id = "indicator"></div>
+    <div id = "alarmlight">
+        <img src="./media/circle.png"/>
+    </div>
+    <script>
+        window.onload = function(){
+            var alarm = document.getElementById("alarmlight")
+            var siren = document.getElementById("siren")
+            document.getElementsByTagName('body')[0].addEventListener('touchstart', toggle)
+            document.getElementsByTagName('body')[0].addEventListener('click', toggle)
+            var isPlaying = false
+            siren.onplaying = function() {isPlaying = true}
+            siren.onpause = function() {isPlaying = false}
+            function toggle(){
+                if(alarm.style.visibility== 'visible'){
+                    alarm.style.visibility = 'hidden'
+                }else{
+                    alarm.style.visibility = 'visible'
+                }
+                if(isPlaying){
+                    siren.pause()
+                }else{
+                    siren.play()
+                }
+            }
+        }
+    </script>
+    <audio id = "siren" src = "./media/alarm.wav" preload="auto" loop>
+        <source src = "./media/alarm.wav" type="audio/wav">
+    </audio>
+</body>
+</html>
