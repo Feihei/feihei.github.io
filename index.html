@@ -2,39 +2,72 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Feihei | Home</title>
+  <title>I'm Feihei</title>
   <style type="text/css">
-  body{
-    text-align: center;
-    font-family: Arial,Helvetica,sans-serif;
-    color:#141;
-  }
-  p{
-    line-height: 1em;
-  }
-  .title{
-    width:80%;
-    padding:0% 10% 0% 10%;
-    font-size:3em;
-    
-  }
-  #huge{
-    line-height: 0em;
-    font-size: 5em;
-  }
-  #left{
-    text-align: left;
-  }
-  #right{
-    text-align: right;
-  }
-  .intro{
-    font-size:1.5em;
-  }
-  #terminal{
-    background-color: #141;
-    height:0.2em;
-  }
+    body{
+      text-align: center;
+      font-family: Arial,Helvetica,sans-serif;
+      background-color:#002a13;
+      color: #fff
+    }
+    a{
+      text-decoration: none;
+      color:#fff;
+    }
+
+    .title{
+      width:80%;
+      padding:0% 10% 0% 10%;
+      font-size:3em;      
+    }
+    .container{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .img_box{
+      background-color: #002a13;
+      border:3px solid #fff;
+      border-radius: 2em;
+      width: 15em;
+      margin: 10px;
+      float: left;
+      position:relative;
+      text-align: center;
+    }
+    .mask{
+      opacity:0;
+      background-color:#002a13;
+      border-radius: inherit;
+      width:100%;
+      height:100%;
+      float:left;
+      position: absolute;
+      display: flex;
+      align-items: center;
+    }
+    .img_box:hover .mask{
+      opacity:0.9;
+    }
+
+    #huge{
+      line-height: 0em;
+      font-size: 5em;
+    }
+    #left{
+      text-align: left;
+    }
+    #right{
+      text-align: right;
+    }
+    .intro{
+      font-size:1.5em;
+    }
+    #terminal{
+      background-color: #fff;
+      height:0.2em;
+    }
   </style>
 </head>
 <body>
@@ -48,5 +81,76 @@
     <p>Thanks for coming!</p>
   </div>
   <div id="terminal"></div>
+  <div class="intro">
+    <p>Hi, I'm Feihei. I am a architectural/urban designer who likes to play with computer and music.</p>
+    <p>Generally I use open source tools and creative common (CC) contents to generate my works, so here I want to say thanks to those authors for their great works.</p>
+    <p>Some of my miscellaneous work are as follows:</p>
+  </div>
+  <div id="terminal"></div>
+  <h2>Music or Sound Works</h2>
+  <div class="container">
+    <div class="img_box", id="music-netease-cloud">
+      <div class="mask">
+        <a href="https://music.163.com/#/artist?id=1139008", style="display:block; width:100%">
+          <h2>Feihei's Digital Zero on Netease Cloud Music</h2>
+        </a>
+      </div>
+      <img src="media/image/FDZ_logo_white.svg", style="width:100%"/>
+    </div>
+    <div class="img_box", id="music-bandcamp">
+      <div class="mask">
+        <a href="https://f-d-z.bandcamp.com/", style="display:block; width:100%">
+          <h2>Feihei's Digital Zero on Bandcamp</h2>
+        </a>
+      </div>
+      <img src="media/image/FDZ_logo_white.svg", style="width:100%"/>
+    </div>
+    <div class="img_box", id="music-douban">
+      <div class="mask">
+        <a href="https://site.douban.com/fdz/", style="display:block; width:100%">
+          <h2>Feihei's Digital Zero on Douban Site</h2>
+        </a>
+      </div>
+      <img src="media/image/FDZ_logo_white.svg", style="width:100%"/>
+    </div>
+  </div>
+  <h2>Mini HTML5 Works</h2>
+  <div class="container">
+    <div class="img_box", id="baobao">
+      <div class="mask">
+        <a href="baobao/index.html", style="display:block; width:100%">
+          <h2>Baobao</h2>
+        </a>
+      </div>
+      <img src="media/image/baobao.svg", style="width:100%"/>
+    </div>
+    <div class="img_box", id="detector">
+      <div class="mask">
+        <a href="detector/index.html", style="display:block; width:100%">
+          <h2>Detector</h2>
+        </a>
+      </div>
+      <img src="media/image/detector.svg", style="width:100%"/>
+    </div>
+    <div class="img_box", id="micviz">
+      <div class="mask">
+        <a href="micviz/index.html", style="display:block; width:100%">
+          <h2>Microphone Visualization</h2>
+        </a>
+      </div>
+      <img src="media/image/micviz.svg", style="width:100%"/>
+    </div>
+  </div>
+  <h2>Other Works</h2>
+  <div class="container">
+    <div class="img_box", id="bilibili">
+      <div class="mask">
+        <a href="https://space.bilibili.com/380517327", style="display:block; width:100%">
+          <h2>Videos on Bilibili</h2>
+        </a>
+      </div>
+      <img src="media/image/FDZ_logo_white.svg", style="width:100%"/>
+    </div>
+  </div>
 </body>
 </html>
