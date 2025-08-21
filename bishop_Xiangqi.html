@@ -61,6 +61,7 @@
             width: 100%;
             justify-content: center;
             flex-wrap: wrap;
+            transform-origin: top center;
         }
         
         .game-board {
@@ -107,12 +108,16 @@
             font-weight: bold;
             cursor: pointer;
             box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
-            transition: all 0.2s ease;
+            transition: all 0.3s ease; /* 过渡动画 */
             position: relative;
             z-index: 10;
             user-select: none;
         }
         
+        .piece.moving {
+            z-index: 100; /* 移动时提高层级 */
+        }
+
         .piece.white {
             background: linear-gradient(145deg, #ffffff, #f0f0f0);
             color: #333;
@@ -287,15 +292,29 @@
             border-color: rgba(255, 229, 80, 0.6);
             box-shadow: 0 0 5px 1px rgba(255, 229, 80, 0.4);
         }
+        @media screen and (max-width: 768px) {
+            .container {
+                transform: scale(0.8);
+                width: 125%; /* 补偿缩放后的空间 */
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .container {
+                transform: scale(0.6);
+                width: 166%; /* 补偿缩放后的空间 */
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>主教中国象棋 Bishop Xiangqi - <span id="gameModeText">双人对弈</span></h1>
-        <div class="subtitle">象的走法同国际象棋（斜线任意格，不可越子，可过河）</div>
-        <div class="rules">白方先行 | 将死/困毙对方获胜 | 三步循环重复判和 | 其他规则同传统中国象棋</div>
-    </div>
+
     <div class="container">
+        <div class="header">
+            <h1>主教中国象棋 Bishop Xiangqi - <span id="gameModeText">人机对战</span></h1>
+            <div class="subtitle">象的走法同国际象棋（斜线任意格，不可越子，可过河）</div>
+            <div class="rules">白方先行 | 将死/困毙对方获胜 | 三次重复局面判和 | 其他规则同传统中国象棋</div>
+        </div>
         <div class="game-board">
             <div class="board" id="chessboard">
                 <!-- 棋盘通过JS生成 -->
@@ -313,7 +332,7 @@
             
             <button class="btn" id="restartBtn">重新开始</button>
             <button class="btn" id="undoBtn">悔棋</button>
-            <button class="btn" id="modeBtn">切换为人机对战</button>
+            <button class="btn" id="modeBtn">切换为双人对战</button>
             <!-- 添加难度选择 -->
             <div class="special-rule">
                 <h3>AI难度选择</h3>
@@ -336,15 +355,16 @@
             // 游戏状态
             const gameState = {
                 board: [],
-                currentPlayer: 'white', // 'white' 或 'black'
+                currentPlayer: 'white',
                 selectedPiece: null,
                 gameOver: false,
-                moveHistory: [], // 跟踪棋盘状态
-                possibleMoves: [], // 存储当前选中棋子的可移动位置
-                gameMode: 'pvp', // 'pvp' 或 'pvc' (人机对战)
-                aiThinking: false, // AI是否正在思考
-                aiDifficulty: 'medium', // 'easy', 'medium', 'hard'
-                aiDepths: { easy: 2, medium: 3, hard: 4 }, // 不同难度对应的搜索深度
+                possibleMoves: [],
+                moveHistory: [], // 历史走棋记录
+                boardStates: [], // 历史棋盘状态记录
+                gameMode: 'pvc',
+                aiThinking: false,
+                aiDifficulty: 'medium',
+                aiDepths: { easy: 2, medium: 3, hard: 4 },
             };
 
             // 棋子初始布局
@@ -859,58 +879,20 @@
 
             // 检查是否为重复局面
             function isRepetitionDraw() {
-                // 如果历史记录少于6步，不可能有三次重复
-                if (gameState.moveHistory.length < 6) {
-                    return false;
-                }
+                if (gameState.boardStates.length < 6) return false;
 
-                // 获取最近6步棋的走法
-                const recentMoves = gameState.moveHistory.slice(-6);
+                const currentBoard = JSON.stringify(gameState.board);
+                let count = 0;
                 
-                // 检查是否形成三次重复
-                // 三次重复意味着：
-                // 第2步与第0步互逆
-                // 第4步与第0步相同
-                // 第3步与第1步互逆
-                // 第5步与第1步相同
-
-                // 判断两个走法是否互逆
-                const isReverseMove = (m1, m2) => {
-                    return m1.fromRow === m2.toRow &&
-                        m1.fromCol === m2.toCol &&
-                        m1.toRow === m2.fromRow &&
-                        m1.toCol === m2.fromCol;
-                };
-
-                // 判断两个走法是否相同
-                const isSameMove = (m1, m2) => {
-                    return m1.fromRow === m2.fromRow &&
-                        m1.fromCol === m2.fromCol &&
-                        m1.toRow === m2.toRow &&
-                        m1.toCol === m2.toCol;
-                };
-
-                // 检查第2步是否与第0步互逆
-                if (!isReverseMove(recentMoves[2], recentMoves[0])) {
-                    return false;
+                // 统计当前局面在历史中出现的次数
+                for (const state of gameState.boardStates) {
+                    if (state === currentBoard) {
+                        count++;
+                        if (count >= 3) return true;
+                    }
                 }
-
-                // 检查第4步是否与第0步相同
-                if (!isSameMove(recentMoves[4], recentMoves[0])) {
-                    return false;
-                }
-
-                // 检查第3步是否与第1步互逆
-                if (!isReverseMove(recentMoves[3], recentMoves[1])) {
-                    return false;
-                }
-
-                // 检查第5步是否与第1步相同
-                if (!isSameMove(recentMoves[5], recentMoves[1])) {
-                    return false;
-                }
-
-                return true;
+                
+                return false;
             }
 
             // 获取合法移动位置（过滤被将军走法）
@@ -1056,78 +1038,95 @@
             function movePiece(fromRow, fromCol, toRow, toCol) {
                 const pieceId = gameState.board[fromRow][fromCol];
                 const targetPiece = gameState.board[toRow][toCol];
+                const pieceElement = document.querySelector(`.piece[data-row="${fromRow}"][data-col="${fromCol}"]`);
+                
+                // 计算移动距离
+                const fromCell = document.querySelector(`.cell[data-row="${fromRow}"][data-col="${fromCol}"]`);
+                const toCell = document.querySelector(`.cell[data-row="${toRow}"][data-col="${toCol}"]`);
+                const deltaX = toCell.offsetLeft - fromCell.offsetLeft;
+                const deltaY = toCell.offsetTop - fromCell.offsetTop;
+                
+                // 应用移动动画
+                pieceElement.classList.add('moving');
+                pieceElement.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+                
+                // 等待动画完成后更新棋盘状态
+                setTimeout(() => {
+                    // 移除moving类
+                    pieceElement.classList.remove('moving');
 
-                // 检查是否形成三步重复局面
-                if (isRepetitionDraw(fromRow, fromCol, toRow, toCol)) {
-                    // 显示和棋信息
-                    statusText.innerHTML = `<span style="color:yellow;font-weight:bold;">和棋！出现三步重复局面</span>`;
-                    currentPlayerText.textContent = '游戏结束';
-                    turnIndicator.style.background = 'transparent';
-                    gameState.gameOver = true; // 设置游戏结束状态
-                    return;
-                }
+                    // 检查是否形成三步重复局面
+                    if (isRepetitionDraw()) {
+                        // 显示和棋信息
+                        statusText.innerHTML = `<span style="color:yellow;font-weight:bold;">和棋！三次出现重复局面</span>`;
+                        currentPlayerText.textContent = '游戏结束';
+                        turnIndicator.style.background = 'transparent';
+                        gameState.gameOver = true;
+                        return;
+                    }
 
-                // 保存移动历史
-                gameState.moveHistory.push({
-                    fromRow, fromCol, toRow, toCol,
-                    pieceMoved: pieceId,
-                    pieceCaptured: targetPiece
-                });
-                
-                // 清除所有旧的走子标记
-                clearMoveIndicators();
+                    // 保存移动历史和棋盘状态
+                    gameState.moveHistory.push({
+                        fromRow, fromCol, toRow, toCol,
+                        pieceMoved: pieceId,
+                        pieceCaptured: targetPiece
+                    });
+                    gameState.boardStates.push(JSON.stringify(gameState.board));
+                    
+                    // 清除所有旧的走子标记
+                    clearMoveIndicators();
 
-                // 更新棋盘状态
-                gameState.board[fromRow][fromCol] = null;
-                gameState.board[toRow][toCol] = pieceId;
-                
-                // 更新界面
-                updateBoard();
-                
-                // 添加走子提示标记（原位置和新位置）
-                addMoveIndicator(fromRow, fromCol, pieceId.startsWith('w') ? 'white' : 'black');
-                addMoveIndicator(toRow, toCol, pieceId.startsWith('w') ? 'white' : 'black');
-                
-                // 清除选择
-                clearSelection();
-                clearPossibleMoves();
-                
-                // 检查是否将死或困毙对方
-                const opponent = gameState.currentPlayer === 'white' ? 'black' : 'white';
-                if (isPlayerMated(opponent)) {
-                    gameState.gameOver = true;
-                    statusText.innerHTML = `<span style="color:gold;font-weight:bold;">${gameState.currentPlayer === 'white' ? '白方' : '黑方'}胜利！</span>`;
-                    currentPlayerText.textContent = '游戏结束';
-                    turnIndicator.style.background = 'transparent';
+                    // 更新棋盘状态
+                    gameState.board[fromRow][fromCol] = null;
+                    gameState.board[toRow][toCol] = pieceId;
+                    
+                    // 更新界面
                     updateBoard();
-                    return;
-                }
+                    
+                    // 添加走子提示标记（原位置和新位置）
+                    addMoveIndicator(fromRow, fromCol, pieceId.startsWith('w') ? 'white' : 'black');
+                    addMoveIndicator(toRow, toCol, pieceId.startsWith('w') ? 'white' : 'black');
+                    
+                    // 清除选择
+                    clearSelection();
+                    clearPossibleMoves();
+                    
+                    // 检查是否将死或困毙对方
+                    const opponent = gameState.currentPlayer === 'white' ? 'black' : 'white';
+                    if (isPlayerMated(opponent)) {
+                        gameState.gameOver = true;
+                        statusText.innerHTML = `<span style="color:gold;font-weight:bold;">${gameState.currentPlayer === 'white' ? '白方' : '黑方'}胜利！</span>`;
+                        currentPlayerText.textContent = '游戏结束';
+                        turnIndicator.style.background = 'transparent';
+                        updateBoard();
+                        return;
+                    }
+                    
+                    if (!gameState.gameOver) {
+                        // 切换玩家
+                        gameState.currentPlayer = gameState.currentPlayer === 'white' ? 'black' : 'white';
+                        
+                        // 检查新回合的玩家是否被将军
+                        const inCheck = isInCheck(gameState.currentPlayer);
                 
-                if (!gameState.gameOver) {
-                    // 切换玩家
-                    gameState.currentPlayer = gameState.currentPlayer === 'white' ? 'black' : 'white';
-                    
-                    // 检查新回合的玩家是否被将军
-                    const inCheck = isInCheck(gameState.currentPlayer);
-        
-                    if (inCheck) {
-                        // 如果被将军，突出显示
-                        statusText.innerHTML = `<span style="color:red;font-weight:bold;">${gameState.currentPlayer === 'white' ? '白方' : '黑方'}被将军！</span>`;
-                        currentPlayerText.textContent = `${gameState.currentPlayer === 'white' ? '白方' : '黑方'}回合（将军）`;
-                    } else {
-                        statusText.textContent = `${gameState.currentPlayer === 'white' ? '白方' : '黑方'}回合，请走棋`;
-                        currentPlayerText.textContent = `${gameState.currentPlayer === 'white' ? '白方' : '黑方'}回合`;
-                    }
-                    
-                    turnIndicator.style.background = gameState.currentPlayer === 'white' ? 'white' : 'black';
+                        if (inCheck) {
+                            statusText.innerHTML = `<span style="color:red;font-weight:bold;">${gameState.currentPlayer === 'white' ? '白方' : '黑方'}被将军！</span>`;
+                            currentPlayerText.textContent = `${gameState.currentPlayer === 'white' ? '白方' : '黑方'}回合（将军）`;
+                        } else {
+                            statusText.textContent = `${gameState.currentPlayer === 'white' ? '白方' : '黑方'}回合，请走棋`;
+                            currentPlayerText.textContent = `${gameState.currentPlayer === 'white' ? '白方' : '黑方'}回合`;
+                        }
+                        
+                        turnIndicator.style.background = gameState.currentPlayer === 'white' ? 'white' : 'black';
 
-                    // 如果是人机对战且轮到AI，则触发AI移动
-                    if (gameState.gameMode === 'pvc' && gameState.currentPlayer === 'black' && !gameState.gameOver) {
-                        setTimeout(makeAIMove, 500);
+                        // 如果是人机对战且轮到AI，则触发AI移动
+                        if (gameState.gameMode === 'pvc' && gameState.currentPlayer === 'black' && !gameState.gameOver) {
+                            setTimeout(makeAIMove, 500);
+                        }
                     }
-                }
+                }, 300); // 与CSS过渡时间保持一致
             }
-            
+          
             // AI
 
             // 棋子基本价值
