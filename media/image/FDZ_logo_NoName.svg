@@ -8,11 +8,11 @@
    id="svg2"
    version="1.1"
    shape-rendering="crispEdges"
-   sodipodi:docname="FDZ_logo_white.svg"
+   sodipodi:docname="FDZ_logo_NoName.svg"
    inkscape:version="1.4 (86a8ad7, 2024-10-11)"
-   inkscape:export-filename="FDZ_favicon_32.png"
-   inkscape:export-xdpi="10.24"
-   inkscape:export-ydpi="10.24"
+   inkscape:export-filename="FDZ_favicon_16.png"
+   inkscape:export-xdpi="5.1199999"
+   inkscape:export-ydpi="5.1199999"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -21,7 +21,7 @@
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:dc="http://purl.org/dc/elements/1.1/">
   <title
-     id="title1">FDZ Icon</title>
+     id="title1">FDZ Icon NoName</title>
   <sodipodi:namedview
      id="namedview1"
      pagecolor="#002a13"
@@ -29,7 +29,7 @@
      borderopacity="0.25"
      inkscape:showpageshadow="2"
      inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="false"
+     inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:zoom="2.7166667"
      inkscape:cx="149.81595"
@@ -63,8 +63,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <cc:license
-           rdf:resource="http://creativecommons.org/licenses/by/4.0/" />
+        <dc:title>FDZ Icon NoName</dc:title>
         <dc:creator>
           <cc:Agent>
             <dc:title>Feihei</dc:title>
@@ -80,13 +79,8 @@
             <dc:title>Feihei</dc:title>
           </cc:Agent>
         </dc:publisher>
-        <dc:title>FDZ Icon</dc:title>
-        <dc:language>En</dc:language>
-        <dc:contributor>
-          <cc:Agent>
-            <dc:title>Feihei</dc:title>
-          </cc:Agent>
-        </dc:contributor>
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by/4.0/" />
       </cc:Work>
       <cc:License
          rdf:about="http://creativecommons.org/licenses/by/4.0/">
@@ -105,10 +99,12 @@
   </metadata>
   <g
      id="layer1"
-     style="opacity:1;fill:#ffffff;fill-opacity:1">
+     style="opacity:1;fill:#ffffff;fill-opacity:1"
+     transform="translate(4.4861963,42.446319)">
     <path
        id="path4209"
        style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.5;stroke-miterlimit:4;stroke-dasharray:none"
-       d="m 105.5548,189.74199 v 5.44529 H 83.773621 v 5.44529 10.89059 h 5.445294 v -10.89059 h 21.781175 v -10.89058 z m 87.1247,0 v 16.33588 h 5.4453 v -16.33588 z m 0,16.33588 h -5.44529 v 10.89059 h 5.44529 z m -5.44529,10.89059 h -5.44529 v 5.44527 h 5.44529 z m -5.44529,5.44527 h -5.4453 v 10.89059 h 5.4453 z m -54.45295,-27.22645 v 38.11704 h 5.4453 v -32.67175 h 10.89059 v -5.44529 z m 38.11687,0 v 5.44529 h 21.78137 v -5.44529 z m -16.33569,5.44529 v 32.67175 h 5.4453 v -32.67175 z m 0,32.67175 h -5.44529 v 5.4453 h 5.44529 z m -5.44529,5.4453 h -21.78118 v 5.44529 h 21.78118 z M 100.1095,211.52316 v 5.4453 H 83.773621 v 21.78116 h -5.445295 v 5.44529 h 10.890589 v -5.44529 -16.33589 H 105.5548 v -10.89057 z m 92.57,21.78116 v 5.4453 h -27.22666 v 5.44529 H 198.1248 V 233.30432 Z M 72.882842,48.163847 c -27.05605,0 -49.007648,21.951598 -49.007648,49.007647 0,27.056046 21.951598,49.007646 49.007648,49.007646 H 203.5699 c 27.05605,0 49.00764,-21.9516 49.00764,-49.007646 0,-27.056049 -21.95159,-49.007647 -49.00764,-49.007647 z m 0,10.890588 h 59.635538 c -3.72269,7.408541 -8.72204,20.612007 -8.72204,38.117059 0,17.504336 4.9994,30.708036 8.72204,38.117056 H 72.882842 c -21.211044,0 -38.11706,-16.90602 -38.11706,-38.117056 0,-21.211038 16.906016,-38.117059 38.11706,-38.117059 z m 64.522478,0 h 1.6421 c 3.45485,6.210837 9.25275,19.386358 9.25275,38.117059 0,18.730516 -5.79789,31.906006 -9.25275,38.117056 h -1.6421 c -3.455,-6.21153 -9.25274,-19.38739 -9.25274,-38.117056 0,-18.730456 5.79779,-31.905993 9.25274,-38.117059 z" />
+       d="m 72.882842,48.163847 c -27.05605,0 -49.007648,21.951598 -49.007648,49.007647 0,27.056046 21.951598,49.007646 49.007648,49.007646 H 203.5699 c 27.05605,0 49.00764,-21.9516 49.00764,-49.007646 0,-27.056049 -21.95159,-49.007647 -49.00764,-49.007647 z m 0,10.890588 h 59.635538 c -3.72269,7.408541 -8.72204,20.612007 -8.72204,38.117059 0,17.504336 4.9994,30.708036 8.72204,38.117056 H 72.882842 c -21.211044,0 -38.11706,-16.90602 -38.11706,-38.117056 0,-21.211038 16.906016,-38.117059 38.11706,-38.117059 z m 64.522478,0 h 1.6421 c 3.45485,6.210837 9.25275,19.386358 9.25275,38.117059 0,18.730516 -5.79789,31.906006 -9.25275,38.117056 h -1.6421 c -3.455,-6.21153 -9.25274,-19.38739 -9.25274,-38.117056 0,-18.730456 5.79779,-31.905993 9.25274,-38.117059 z"
+       sodipodi:nodetypes="sssssssscscsssccsccsc" />
   </g>
 </svg>
