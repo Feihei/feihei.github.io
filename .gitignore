@@ -1,3 +1,21 @@
+# Jekyll (GitHub Pages default, kept just in case)
 _site/
 .sass-cache/
 .jekyll-metadata
+
+# OS junk
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editors / IDEs
+.vscode/
+.idea/
+*.swp
+
+# Agent workspace data
+.workbuddy/
+
+# Logs & temp files
+*.log
+*.tmp
