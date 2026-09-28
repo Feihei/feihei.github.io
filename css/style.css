@@ -1,0 +1,150 @@
+/* feihei.github.io homepage styles
+   Visual identity: dark green #002a13 + white borders + rounded cards. Don't redesign without asking. */
+
+body{
+  text-align: center;
+  font-family: Arial,Helvetica,sans-serif;
+  background-color:#002a13;
+  color: #fff;
+  margin: 0;
+  padding: 70px 0 0;
+}
+a{
+  text-decoration: none;
+  color:#fff;
+}
+
+/* Language switch bar */
+.language-switch {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 42, 19, 0.95);
+  padding: 15px 0;
+  z-index: 1000;
+  border-bottom: 2px solid #fff;
+}
+
+.language-option {
+  padding: 8px 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 20px;
+}
+
+.language-option.active {
+  background-color: #fff;
+  color: #002a13;
+}
+
+.language-icon {
+  width: 40px;
+  height: 40px;
+  margin: 0 20px;
+  cursor: pointer;
+  transition: transform 0.6s ease;
+}
+
+.language-icon.flipped {
+  transform: scaleX(-1);
+}
+
+.language-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Content sections (EN/CN) */
+.content-section {
+  display: none;
+  animation: fadeIn 0.5s ease;
+}
+
+.content-section.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.title{
+  width:80%;
+  padding:0% 10% 0% 10%;
+  font-size:3em;
+}
+.container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.img_box{
+  display: block;
+  background-color: #002a13;
+  border:3px solid #fff;
+  border-radius: 2em;
+  width: 15em;
+  margin: 10px;
+  float: left;
+  position:relative;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.img_box:hover {
+  transform: translateY(-5px);
+}
+
+.mask{
+  opacity:0;
+  background-color:#002a13;
+  border-radius: inherit;
+  width:100%;
+  height:100%;
+  float:left;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  transition: opacity 0.3s ease;
+}
+.img_box:hover .mask{
+  opacity:0.9;
+}
+
+/* Touch devices: no hover, show titles directly and let the whole card be tappable */
+@media (hover: none) {
+  .mask {
+    opacity: 0.9;
+  }
+}
+
+#huge{
+  line-height: 0em;
+  font-size: 5em;
+}
+#left{
+  text-align: left;
+}
+#right{
+  text-align: right;
+}
+.intro{
+  font-size:1.5em;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+#terminal{
+  background-color: #fff;
+  height:0.2em;
+  width: 80%;
+  margin: 30px auto;
+}

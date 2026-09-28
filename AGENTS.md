@@ -10,7 +10,9 @@ HTML/CSS/JS, **no build step, no dependencies, no framework**. Don't introduce t
 
 ## Structure
 
-- `index.html` — the homepage (single file, inline CSS/JS)
+- `index.html` — the homepage markup (content only; styles/JS are external)
+- `css/style.css` — homepage styles (visual identity lives here)
+- `js/main.js` — homepage language switcher
 - Everything else at top level (`baobao/`, `detector/`, `micviz/`, `valentine/`,
   `qingju_bike/`, `happy_birthday_*`, `cannon-chess.html`) is a **standalone mini work**,
   self-contained in its own folder/file
@@ -39,6 +41,9 @@ card corners. Don't redesign without asking.
   add it to **both** sections with matching `-cn` suffixed ids
 - **New pages** should stay self-contained single files and follow the same
   mobile-friendly basics (viewport meta, no hover-dependent core functions)
+- **Homepage edits by concern**: content/structure → `index.html`, visuals →
+  `css/style.css`, behavior → `js/main.js`. Class names and element ids are the
+  contract between the three files — rename in all of them or not at all
 
 ## Workflow
 
