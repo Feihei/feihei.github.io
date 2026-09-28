@@ -1,17 +1,32 @@
 /* feihei.github.io homepage styles
-   Visual identity: dark green #002a13 + white borders + rounded cards. Don't redesign without asking. */
+   Visual identity: dark green #002a13 + white + rounded cards. Don't redesign without asking. */
+
+:root{
+  --color-bg: #002a13;
+  --color-bg-raised: #0a3d20;
+  --color-ink: #fff;
+  --color-ink-dim: rgba(255, 255, 255, 0.78);
+  --radius-card: 1.5em;
+  --shadow-card: 0 3px 12px rgba(0, 0, 0, 0.22);
+  --shadow-card-hover: 0 10px 26px rgba(0, 0, 0, 0.35);
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
 
 body{
   text-align: center;
-  font-family: Arial,Helvetica,sans-serif;
-  background-color:#002a13;
-  color: #fff;
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  /* Subtle depth: slightly lighter glow at the top, flat identity green below */
+  background-image: radial-gradient(120% 90% at 50% 0%, var(--color-bg-raised), var(--color-bg) 60%);
+  color: var(--color-ink);
   margin: 0;
   padding: 70px 0 0;
+  -webkit-font-smoothing: antialiased;
 }
 a{
   text-decoration: none;
-  color:#fff;
+  color: var(--color-ink);
 }
 
 /* Language switch bar */
@@ -23,13 +38,20 @@ a{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 42, 19, 0.95);
-  padding: 15px 0;
+  background-color: rgba(0, 42, 19, 0.8);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  padding: 12px 0;
   z-index: 1000;
-  border-bottom: 2px solid #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.9);
 }
 
 .language-option {
+  appearance: none;
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
   padding: 8px 15px;
   font-weight: bold;
   cursor: pointer;
@@ -38,11 +60,23 @@ a{
 }
 
 .language-option.active {
-  background-color: #fff;
-  color: #002a13;
+  background-color: var(--color-ink);
+  color: var(--color-bg);
+}
+
+.language-option:focus-visible,
+.language-icon:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 2px;
 }
 
 .language-icon {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
   width: 40px;
   height: 40px;
   margin: 0 20px;
@@ -75,60 +109,14 @@ a{
 }
 
 .title{
-  width:80%;
-  padding:0% 10% 0% 10%;
-  font-size:3em;
+  width: 80%;
+  padding: 0 10%;
+  font-size: clamp(2em, 5vw, 3em);
 }
-.container{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-  flex-wrap: wrap;
-}
-.img_box{
-  display: block;
-  background-color: #002a13;
-  border:3px solid #fff;
-  border-radius: 2em;
-  width: 15em;
-  margin: 10px;
-  float: left;
-  position:relative;
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.img_box:hover {
-  transform: translateY(-5px);
-}
-
-.mask{
-  opacity:0;
-  background-color:#002a13;
-  border-radius: inherit;
-  width:100%;
-  height:100%;
-  float:left;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  transition: opacity 0.3s ease;
-}
-.img_box:hover .mask{
-  opacity:0.9;
-}
-
-/* Touch devices: no hover, show titles directly and let the whole card be tappable */
-@media (hover: none) {
-  .mask {
-    opacity: 0.9;
-  }
-}
-
 #huge{
   line-height: 0em;
-  font-size: 5em;
+  font-size: clamp(3.2em, 11vw, 5em);
+  letter-spacing: 0.03em;
 }
 #left{
   text-align: left;
@@ -137,14 +125,112 @@ a{
   text-align: right;
 }
 .intro{
-  font-size:1.5em;
+  font-size: clamp(1.05em, 2.5vw, 1.5em);
+  line-height: 1.65;
   max-width: 800px;
   margin: 0 auto;
   padding: 0 20px;
+  color: var(--color-ink-dim);
 }
 #terminal{
-  background-color: #fff;
-  height:0.2em;
+  background-color: var(--color-ink);
+  height: 2px;
   width: 80%;
   margin: 30px auto;
+}
+
+h2{
+  letter-spacing: 0.04em;
+}
+
+/* Card grid: responsive column count, no floats */
+.container{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 1.25em;
+  justify-content: center;
+  width: min(90%, 75em);
+  margin: 20px auto 0;
+}
+
+.img_box{
+  display: block;
+  background: linear-gradient(160deg, var(--color-bg-raised), var(--color-bg));
+  border: 2px solid var(--color-ink);
+  border-radius: var(--radius-card);
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.img_box:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.img_box:focus-visible {
+  outline: 3px solid var(--color-ink);
+  outline-offset: 3px;
+}
+
+.mask{
+  opacity: 0;
+  background-color: rgba(0, 42, 19, 0.55);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: 1em;
+  box-sizing: border-box;
+  transition: opacity 0.3s ease;
+}
+.img_box:hover .mask{
+  opacity: 1;
+}
+
+.mask h2{
+  font-size: 1.15em;
+  line-height: 1.35;
+  margin: 0;
+}
+
+/* Touch devices: no hover, show titles directly and let the whole card be tappable */
+@media (hover: none) {
+  .mask {
+    opacity: 1;
+  }
+}
+
+/* Entrance: cards fade in with a small stagger */
+@media (prefers-reduced-motion: no-preference) {
+  .container > .img_box {
+    animation: cardIn 0.5s ease backwards;
+  }
+  .container > .img_box:nth-child(2) { animation-delay: 0.06s; }
+  .container > .img_box:nth-child(3) { animation-delay: 0.12s; }
+  .container > .img_box:nth-child(4) { animation-delay: 0.18s; }
+  .container > .img_box:nth-child(5) { animation-delay: 0.24s; }
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+/* Respect users who opt out of motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
