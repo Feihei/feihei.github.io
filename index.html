@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Feihei — architectural/urban designer who likes to play with computer and music. Music works, mini HTML5 games and other open-source-made works.">
+  <meta name="description" content="Feihei — old school AI native indie developer. Architectural/urban designer who likes to play with computer and music. Music works, mini HTML5 games and other open-source-made works.">
   <meta name="theme-color" content="#002a13">
   <meta property="og:title" content="I'm Feihei">
-  <meta property="og:description" content="Music works, mini HTML5 games and other works made with open source tools.">
+  <meta property="og:description" content="Old school AI native indie developer. Music works, mini HTML5 games and other works made with open source tools.">
   <meta property="og:url" content="https://feihei.github.io/">
   <meta property="og:type" content="website">
   <title>I'm Feihei</title>
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- 语言切换栏 -->
+  <!-- Language switch bar -->
   <div class="language-switch">
     <button type="button" class="language-option active" id="en-option">EN</button>
 
@@ -29,170 +29,195 @@
     <button type="button" class="language-option" id="cn-option">中</button>
   </div>
 
-  <!-- 英文内容 -->
+  <!-- Slide navigation dots (built by js/main.js) -->
+  <nav id="slide-nav" aria-label="Slides"></nav>
+
+  <!-- English slides -->
   <div class="content-section active" id="en-content">
-    <!-- <div id="terminal"></div> -->
-    <div class="title">
-      <p id="left">Look, I'm</p>
-      <h1 id="huge">FEIHEI</h1>
-      <p id="right">here.</p>    
-    </div>
-    <div class="intro">
-      <p>Thanks for coming!</p>
-    </div>
-    <div id="terminal"></div>
-    <div class="intro">
-      <p>Hi, I'm Feihei. I am a architectural/urban designer who likes to play with computer and music.</p>
-      <p>Generally I use open source tools and creative common (CC) contents to generate my works, so here I want to say thanks to those authors for their great works.</p>
-      <p>Some of my miscellaneous work are as follows:</p>
-    </div>
-    <div id="terminal"></div>
-    <h2>Music or Sound Works</h2>
-    <div class="container">
-      <a class="img_box" id="music-netease-cloud" href="https://music.163.com/#/artist?id=1139008">
-        <div class="mask">
-          <h2>Feihei's Digital Zero on Netease Cloud Music</h2>
-        </div>
-        <img src="media/image/FDZ_logo_white.svg" style="width:100%" alt="Netease Cloud Music"/>
-      </a>
-      <a class="img_box" id="music-bandcamp" href="https://f-d-z.bandcamp.com/">
-        <div class="mask">
-          <h2>Feihei's Digital Zero on Bandcamp</h2>
-        </div>
-        <img src="media/image/FDZ_logo_white.svg" style="width:100%" alt="Bandcamp"/>
-      </a>
-      <a class="img_box" id="music-douban" href="https://site.douban.com/fdz/">
-        <div class="mask">
-          <h2>Feihei's Digital Zero on Douban Site</h2>
-        </div>
-        <img src="media/image/FDZ_logo_white.svg" style="width:100%" alt="Douban"/>
-      </a>
-    </div>
-    <h2>Mini HTML5 Works</h2>
-    <div class="container">
-      <a class="img_box" id="baobao" href="baobao/index.html">
-        <div class="mask">
-          <h2>Baobao</h2>
-        </div>
-        <img src="media/image/baobao.svg" style="width:100%" alt="Baobao"/>
-      </a>
-      <a class="img_box" id="detector" href="detector/index.html">
-        <div class="mask">
-          <h2>Detector</h2>
-        </div>
-        <img src="media/image/detector.svg" style="width:100%" alt="Detector"/>
-      </a>
-      <a class="img_box" id="micviz" href="micviz/index.html">
-        <div class="mask">
-          <h2>Microphone Visualization</h2>
-        </div>
-        <img src="media/image/micviz.svg" style="width:100%" alt="Microphone Visualization"/>
-      </a>
-      <a class="img_box" id="bishop_Xiangqi" href="https://feihei.github.io/bishop_xiangqi/">
-        <div class="mask">
-          <h2>Bishop Xiangqi</h2>
-        </div>
-        <img src="media/image/bishop_Xiangqi.svg" style="width:100%" alt="Bishop Xiangqi"/>
-      </a>
-      <a class="img_box" id="cannon-chess" href="cannon-chess.html">
-        <div class="mask">
-          <h2>Cannon Chess</h2>
-        </div>
-        <img src="media/image/cannon_chess.svg" style="width:100%" alt="Cannon Chess"/>
-      </a>
-    </div>
-    <h2>Other Works</h2>
-    <div class="container">
-      <a class="img_box" id="bilibili" href="https://space.bilibili.com/380517327">
-        <div class="mask">
-          <h2>Videos on Bilibili</h2>
-        </div>
-        <img src="media/image/FDZ_logo_white.svg" style="width:100%" alt="Bilibili"/>
-      </a>
-    </div>
+    <section class="slide slide-intro">
+      <div class="title">
+        <p id="left">Look, I'm</p>
+        <h1 id="huge">FEIHEI</h1>
+        <p id="right">here.</p>
+      </div>
+      <p class="tagline">
+        <span>old school</span>
+        <span>AI native</span>
+        <span>indie developer</span>
+      </p>
+      <div id="terminal"></div>
+      <div class="intro">
+        <p>Thanks for coming! Hi, I'm Feihei. I am an architectural/urban designer who likes to play with computer and music.</p>
+        <p>Generally I use open source tools and creative common (CC) contents to generate my works, so here I want to say thanks to those authors for their great works.</p>
+      </div>
+      <div class="scroll-hint" aria-hidden="true">&darr;</div>
+    </section>
+
+    <section class="slide">
+      <h2>Music or Sound Works</h2>
+      <div class="container">
+        <a class="img_box" id="music-netease-cloud" href="https://music.163.com/#/artist?id=1139008">
+          <div class="mask">
+            <h2>Feihei's Digital Zero on Netease Cloud Music</h2>
+          </div>
+          <img src="media/image/FDZ_logo_white.svg" style="width:100%" alt="Netease Cloud Music"/>
+        </a>
+        <a class="img_box" id="music-bandcamp" href="https://f-d-z.bandcamp.com/">
+          <div class="mask">
+            <h2>Feihei's Digital Zero on Bandcamp</h2>
+          </div>
+          <img src="media/image/FDZ_logo_white.svg" style="width:100%" alt="Bandcamp"/>
+        </a>
+        <a class="img_box" id="music-douban" href="https://site.douban.com/fdz/">
+          <div class="mask">
+            <h2>Feihei's Digital Zero on Douban Site</h2>
+          </div>
+          <img src="media/image/FDZ_logo_white.svg" style="width:100%" alt="Douban"/>
+        </a>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>Mini HTML5 Works</h2>
+      <div class="container">
+        <a class="img_box" id="baobao" href="baobao/index.html">
+          <div class="mask">
+            <h2>Baobao</h2>
+          </div>
+          <img src="media/image/baobao.svg" style="width:100%" alt="Baobao"/>
+        </a>
+        <a class="img_box" id="detector" href="detector/index.html">
+          <div class="mask">
+            <h2>Detector</h2>
+          </div>
+          <img src="media/image/detector.svg" style="width:100%" alt="Detector"/>
+        </a>
+        <a class="img_box" id="micviz" href="micviz/index.html">
+          <div class="mask">
+            <h2>Microphone Visualization</h2>
+          </div>
+          <img src="media/image/micviz.svg" style="width:100%" alt="Microphone Visualization"/>
+        </a>
+        <a class="img_box" id="bishop_Xiangqi" href="https://feihei.github.io/bishop_xiangqi/">
+          <div class="mask">
+            <h2>Bishop Xiangqi</h2>
+          </div>
+          <img src="media/image/bishop_Xiangqi.svg" style="width:100%" alt="Bishop Xiangqi"/>
+        </a>
+        <a class="img_box" id="cannon-chess" href="cannon-chess.html">
+          <div class="mask">
+            <h2>Cannon Chess</h2>
+          </div>
+          <img src="media/image/cannon_chess.svg" style="width:100%" alt="Cannon Chess"/>
+        </a>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>Other Works</h2>
+      <div class="container">
+        <a class="img_box" id="bilibili" href="https://space.bilibili.com/380517327">
+          <div class="mask">
+            <h2>Videos on Bilibili</h2>
+          </div>
+          <img src="media/image/FDZ_logo_white.svg" style="width:100%" alt="Bilibili"/>
+        </a>
+      </div>
+    </section>
   </div>
 
-  <!-- 中文内容 -->
+  <!-- Chinese slides -->
   <div class="content-section" id="cn-content">
-    <div id="terminal"></div>
-    <div class="title">
-      <p id="left">看，我是</p>
-      <h1 id="huge">FEIHEI</h1>
-      <p id="right">在这里</p>    
-    </div>
-    <div class="intro">
-      <p>感谢您的访问！</p>
-    </div>
-    <div id="terminal"></div>
-    <div class="intro">
-      <p>你好，我是Feihei。我是一名建筑/城市设计师，喜欢玩计算机和音乐。</p>
-      <p>我通常使用开源工具和知识共享(CC)内容来创作我的作品，因此我想在此感谢那些作者们的杰出工作。</p>
-      <p>以下是我的一些作品：</p>
-    </div>
-    <div id="terminal"></div>
-    <h2>声音作品</h2>
-    <div class="container">
-      <a class="img_box" id="music-netease-cloud-cn" href="https://music.163.com/#/artist?id=1139008">
-        <div class="mask">
-          <h2>FDZ在网易云音乐</h2>
-        </div>
-        <img src="media/image/FDZ_logo_white.svg" style="width:100%" alt="网易云音乐"/>
-      </a>
-      <a class="img_box" id="music-bandcamp-cn" href="https://f-d-z.bandcamp.com/">
-        <div class="mask">
-          <h2>FDZ的Bandcamp主页</h2>
-        </div>
-        <img src="media/image/FDZ_logo_white.svg" style="width:100%" alt="Bandcamp"/>
-      </a>
-      <a class="img_box" id="music-douban-cn" href="https://site.douban.com/fdz/">
-        <div class="mask">
-          <h2>FDZ的豆瓣小站</h2>
-        </div>
-        <img src="media/image/FDZ_logo_white.svg" style="width:100%" alt="豆瓣"/>
-      </a>
-    </div>
-    <h2>迷你HTML5作品</h2>
-    <div class="container">
-      <a class="img_box" id="baobao-cn" href="baobao/index.html">
-        <div class="mask">
-          <h2>包包</h2>
-        </div>
-        <img src="media/image/baobao.svg" style="width:100%" alt="抱抱"/>
-      </a>
-      <a class="img_box" id="detector-cn" href="detector/index.html">
-        <div class="mask">
-          <h2>探测器</h2>
-        </div>
-        <img src="media/image/detector.svg" style="width:100%" alt="探测器"/>
-      </a>
-      <a class="img_box" id="micviz-cn" href="micviz/index.html">
-        <div class="mask">
-          <h2>麦克风可视化</h2>
-        </div>
-        <img src="media/image/micviz.svg" style="width:100%" alt="麦克风可视化"/>
-      </a>
-      <a class="img_box" id="bishop_Xiangqi_cn" href="https://feihei.github.io/bishop_xiangqi/">
-        <div class="mask">
-          <h2>主教象棋</h2>
-        </div>
-        <img src="media/image/bishop_Xiangqi.svg" style="width:100%" alt="主教象棋"/>
-      </a>
-      <a class="img_box" id="cannon-chess-cn" href="cannon-chess.html">
-        <div class="mask">
-          <h2>带炮国象</h2>
-        </div>
-        <img src="media/image/cannon_chess.svg" style="width:100%" alt="带炮国象"/>
-      </a>
-    </div>
-    <h2>其他作品</h2>
-    <div class="container">
-      <a class="img_box" id="bilibili-cn" href="https://space.bilibili.com/380517327">
-        <div class="mask">
-          <h2>Bilibili上的视频</h2>
-        </div>
-        <img src="media/image/FDZ_logo_white.svg" style="width:100%" alt="Bilibili"/>
-      </a>
-    </div>
+    <section class="slide slide-intro">
+      <div class="title">
+        <p id="left">看，我是</p>
+        <h1 id="huge">FEIHEI</h1>
+        <p id="right">在这里</p>
+      </div>
+      <p class="tagline">
+        <span>老派</span>
+        <span>AI 原生</span>
+        <span>独立开发者</span>
+      </p>
+      <div id="terminal"></div>
+      <div class="intro">
+        <p>感谢您的访问！你好，我是Feihei。我是一名建筑/城市设计师，喜欢玩计算机和音乐。</p>
+        <p>我通常使用开源工具和知识共享(CC)内容来创作我的作品，因此我想在此感谢那些作者们的杰出工作。</p>
+      </div>
+      <div class="scroll-hint" aria-hidden="true">&darr;</div>
+    </section>
+
+    <section class="slide">
+      <h2>声音作品</h2>
+      <div class="container">
+        <a class="img_box" id="music-netease-cloud-cn" href="https://music.163.com/#/artist?id=1139008">
+          <div class="mask">
+            <h2>FDZ在网易云音乐</h2>
+          </div>
+          <img src="media/image/FDZ_logo_white.svg" style="width:100%" alt="网易云音乐"/>
+        </a>
+        <a class="img_box" id="music-bandcamp-cn" href="https://f-d-z.bandcamp.com/">
+          <div class="mask">
+            <h2>FDZ的Bandcamp主页</h2>
+          </div>
+          <img src="media/image/FDZ_logo_white.svg" style="width:100%" alt="Bandcamp"/>
+        </a>
+        <a class="img_box" id="music-douban-cn" href="https://site.douban.com/fdz/">
+          <div class="mask">
+            <h2>FDZ的豆瓣小站</h2>
+          </div>
+          <img src="media/image/FDZ_logo_white.svg" style="width:100%" alt="豆瓣"/>
+        </a>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>迷你HTML5作品</h2>
+      <div class="container">
+        <a class="img_box" id="baobao-cn" href="baobao/index.html">
+          <div class="mask">
+            <h2>包包</h2>
+          </div>
+          <img src="media/image/baobao.svg" style="width:100%" alt="抱抱"/>
+        </a>
+        <a class="img_box" id="detector-cn" href="detector/index.html">
+          <div class="mask">
+            <h2>探测器</h2>
+          </div>
+          <img src="media/image/detector.svg" style="width:100%" alt="探测器"/>
+        </a>
+        <a class="img_box" id="micviz-cn" href="micviz/index.html">
+          <div class="mask">
+            <h2>麦克风可视化</h2>
+          </div>
+          <img src="media/image/micviz.svg" style="width:100%" alt="麦克风可视化"/>
+        </a>
+        <a class="img_box" id="bishop_Xiangqi_cn" href="https://feihei.github.io/bishop_xiangqi/">
+          <div class="mask">
+            <h2>主教象棋</h2>
+          </div>
+          <img src="media/image/bishop_Xiangqi.svg" style="width:100%" alt="主教象棋"/>
+        </a>
+        <a class="img_box" id="cannon-chess-cn" href="cannon-chess.html">
+          <div class="mask">
+            <h2>带炮国象</h2>
+          </div>
+          <img src="media/image/cannon_chess.svg" style="width:100%" alt="带炮国象"/>
+        </a>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>其他作品</h2>
+      <div class="container">
+        <a class="img_box" id="bilibili-cn" href="https://space.bilibili.com/380517327">
+          <div class="mask">
+            <h2>Bilibili上的视频</h2>
+          </div>
+          <img src="media/image/FDZ_logo_white.svg" style="width:100%" alt="Bilibili"/>
+        </a>
+      </div>
+    </section>
   </div>
 
   <script src="js/main.js"></script>

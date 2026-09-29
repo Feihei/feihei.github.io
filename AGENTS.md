@@ -30,6 +30,11 @@ HTML/CSS/JS, **no build step, no dependencies, no framework**. Don't introduce t
 Keep the visual identity: dark green `#002a13` background, white borders, rounded
 card corners. Don't redesign without asking.
 
+- **Slide layout**: the homepage is a slide deck — each `<section class="slide">`
+  is one viewport, snapped via CSS scroll-snap (no slide libraries). Slide 1 is the
+  intro ("Look, I'm FEIHEI here." + tagline pills + short bio), the rest are work
+  categories. Dots in `#slide-nav` are built by `js/main.js` from the active
+  language's slides
 - **Cards**: each work card is `<a class="img_box" href="...">` containing a
   `.mask` (title overlay) and an `<img>`. The whole card is one link — don't nest
   links inside cards, and don't move the link back into the mask (breaks touch devices)

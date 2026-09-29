@@ -1,5 +1,6 @@
 /* feihei.github.io homepage styles
-   Visual identity: dark green #002a13 + white + rounded cards. Don't redesign without asking. */
+   Visual identity: dark green #002a13 + white + rounded cards. Don't redesign without asking.
+   Layout: slide-deck style — one .slide per viewport, CSS scroll-snap, dots built by js/main.js. */
 
 :root{
   --color-bg: #002a13;
@@ -13,15 +14,21 @@
     Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
 }
 
+html, body{
+  height: 100%;
+}
+
 body{
   text-align: center;
   font-family: var(--font-sans);
   background-color: var(--color-bg);
   /* Subtle depth: slightly lighter glow at the top, flat identity green below */
   background-image: radial-gradient(120% 90% at 50% 0%, var(--color-bg-raised), var(--color-bg) 60%);
+  background-attachment: fixed;
   color: var(--color-ink);
   margin: 0;
-  padding: 70px 0 0;
+  padding: 0;
+  overflow: hidden;
   -webkit-font-smoothing: antialiased;
 }
 a{
@@ -65,7 +72,8 @@ a{
 }
 
 .language-option:focus-visible,
-.language-icon:focus-visible {
+.language-icon:focus-visible,
+.slide-dot:focus-visible {
   outline: 2px solid var(--color-ink);
   outline-offset: 2px;
 }
@@ -93,7 +101,36 @@ a{
   height: 100%;
 }
 
-/* Content sections (EN/CN) */
+/* Slide navigation dots */
+#slide-nav{
+  position: fixed;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1001;
+}
+
+.slide-dot{
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid var(--color-ink);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.slide-dot.active{
+  background: var(--color-ink);
+  transform: scale(1.25);
+}
+
+/* Content sections: the active one is the slide scroller */
 .content-section {
   display: none;
   animation: fadeIn 0.5s ease;
@@ -101,6 +138,10 @@ a{
 
 .content-section.active {
   display: block;
+  height: 100dvh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
 }
 
 @keyframes fadeIn {
@@ -108,14 +149,28 @@ a{
   to { opacity: 1; }
 }
 
-.title{
-  width: 80%;
-  padding: 0 10%;
-  font-size: clamp(2em, 5vw, 3em);
+/* One slide = one viewport */
+.slide{
+  min-height: 100dvh;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 90px 6vw 50px;
+  box-sizing: border-box;
+}
+
+/* Intro slide */
+.slide-intro .title{
+  width: auto;
+  max-width: 90%;
+  padding: 0;
+  font-size: clamp(1.3em, 3.2vw, 1.8em);
 }
 #huge{
   line-height: 0em;
-  font-size: clamp(3.2em, 11vw, 5em);
+  font-size: clamp(2.4em, 8vw, 3.8em);
   letter-spacing: 0.03em;
 }
 #left{
@@ -124,6 +179,50 @@ a{
 #right{
   text-align: right;
 }
+
+.tagline{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6em;
+  margin: 1.4em 0 0;
+  font-size: clamp(0.95em, 2.2vw, 1.2em);
+}
+.tagline span{
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 999px;
+  padding: 0.3em 0.9em;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.slide-intro #terminal{
+  width: 40%;
+  margin: 2em auto;
+}
+
+.slide-intro .intro{
+  font-size: clamp(1em, 2vw, 1.2em);
+  max-width: 36em;
+}
+
+.scroll-hint{
+  margin-top: 2.5em;
+  font-size: 1.6em;
+  animation: bob 1.6s ease-in-out infinite;
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+/* Work slides */
+.slide h2{
+  letter-spacing: 0.04em;
+  font-size: clamp(1.6em, 3vw, 2.2em);
+  margin: 0 0 0.6em;
+}
+
 .intro{
   font-size: clamp(1.05em, 2.5vw, 1.5em);
   line-height: 1.65;
@@ -132,15 +231,12 @@ a{
   padding: 0 20px;
   color: var(--color-ink-dim);
 }
+
 #terminal{
   background-color: var(--color-ink);
   height: 2px;
   width: 80%;
   margin: 30px auto;
-}
-
-h2{
-  letter-spacing: 0.04em;
 }
 
 /* Card grid: responsive column count, no floats */
@@ -149,8 +245,8 @@ h2{
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
   gap: 1.25em;
   justify-content: center;
-  width: min(90%, 75em);
-  margin: 20px auto 0;
+  width: min(90%, 70em);
+  margin: 0 auto;
 }
 
 .img_box{
@@ -232,5 +328,26 @@ h2{
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+  .content-section.active,
+  html {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Small screens: tighter chrome */
+@media (max-width: 640px) {
+  .language-icon {
+    margin: 0 10px;
+  }
+  #slide-nav {
+    right: 8px;
+  }
+  .slide {
+    padding: 80px 5vw 40px;
+  }
+  .container {
+    grid-template-columns: repeat(auto-fill, minmax(11em, 1fr));
+    gap: 0.9em;
   }
 }
