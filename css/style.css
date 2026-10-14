@@ -130,10 +130,11 @@ a{
   transform: scale(1.25);
 }
 
-/* Content sections: the active one is the slide scroller */
+/* Content sections: the active one is the slide scroller.
+   No fade-in on load — everything is visible from the first paint.
+   Language switches cross-fade via the View Transition API (js/main.js). */
 .content-section {
   display: none;
-  animation: fadeIn 0.5s ease;
 }
 
 .content-section.active {
@@ -142,11 +143,6 @@ a{
   overflow-y: auto;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
 }
 
 /* One slide = one viewport */
@@ -180,29 +176,19 @@ a{
   text-align: right;
 }
 
-.tagline{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.6em;
-  margin: 1.4em 0 0;
-  font-size: clamp(0.95em, 2.2vw, 1.2em);
-}
-.tagline span{
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  border-radius: 999px;
-  padding: 0.3em 0.9em;
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.slide-intro #terminal{
-  width: 40%;
-  margin: 2em auto;
-}
-
+/* Book-like intro: left-aligned paragraph with a drop cap on its first letter */
 .slide-intro .intro{
+  margin: 1.6em auto 0;
+  text-align: left;
   font-size: clamp(1em, 2vw, 1.2em);
   max-width: 36em;
+}
+.slide-intro .intro p::first-letter{
+  float: left;
+  font-size: 3.2em;
+  line-height: 0.8;
+  padding: 0.06em 0.1em 0 0;
+  color: var(--color-ink);
 }
 
 .scroll-hint{
@@ -230,13 +216,6 @@ a{
   margin: 0 auto;
   padding: 0 20px;
   color: var(--color-ink-dim);
-}
-
-#terminal{
-  background-color: var(--color-ink);
-  height: 2px;
-  width: 80%;
-  margin: 30px auto;
 }
 
 /* Card grid: responsive column count, no floats */
@@ -304,15 +283,19 @@ a{
   }
 }
 
-/* Entrance: cards fade in with a small stagger */
+/* Entrance: cards fade in when their slide becomes active (main.js adds
+   .slide-active via IntersectionObserver), instead of once on page load.
+   html.js keeps cards visible if JS never runs. */
 @media (prefers-reduced-motion: no-preference) {
-  .container > .img_box {
+  html.js .container > .img_box { opacity: 0; }
+  html.js .slide-active .container > .img_box {
+    opacity: 1;
     animation: cardIn 0.5s ease backwards;
   }
-  .container > .img_box:nth-child(2) { animation-delay: 0.06s; }
-  .container > .img_box:nth-child(3) { animation-delay: 0.12s; }
-  .container > .img_box:nth-child(4) { animation-delay: 0.18s; }
-  .container > .img_box:nth-child(5) { animation-delay: 0.24s; }
+  html.js .slide-active .container > .img_box:nth-child(2) { animation-delay: 0.06s; }
+  html.js .slide-active .container > .img_box:nth-child(3) { animation-delay: 0.12s; }
+  html.js .slide-active .container > .img_box:nth-child(4) { animation-delay: 0.18s; }
+  html.js .slide-active .container > .img_box:nth-child(5) { animation-delay: 0.24s; }
 }
 
 @keyframes cardIn {
@@ -333,6 +316,33 @@ a{
   html {
     scroll-behavior: auto !important;
   }
+}
+
+/* Film grain overlay: full-viewport canvas painted by js/main.js.
+   Sits above everything (pointer-events: none) like a layer of film stock. */
+#film-grain{
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2000;
+  opacity: 0.2;
+}
+
+/* CRT vignette: screen corners and edges darken like an old tube monitor.
+   Sits under the grain layer, above all page content; pure CSS, no animation. */
+body::after{
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1900;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 55%,
+    rgba(0, 0, 0, 0.32) 100%
+  );
 }
 
 /* Small screens: tighter chrome */

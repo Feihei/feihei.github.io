@@ -12,7 +12,8 @@ HTML/CSS/JS, **no build step, no dependencies, no framework**. Don't introduce t
 
 - `index.html` — the homepage markup (content only; styles/JS are external)
 - `css/style.css` — homepage styles (visual identity lives here)
-- `js/main.js` — homepage language switcher
+- `js/main.js` — homepage language switcher, slide-gated card entrance
+  (`.slide-active`), film grain overlay
 - Everything else at top level (`baobao/`, `detector/`, `micviz/`, `valentine/`,
   `qingju_bike/`, `happy_birthday_*`, `cannon-chess.html`) is a **standalone mini work**,
   self-contained in its own folder/file
@@ -32,7 +33,7 @@ card corners. Don't redesign without asking.
 
 - **Slide layout**: the homepage is a slide deck — each `<section class="slide">`
   is one viewport, snapped via CSS scroll-snap (no slide libraries). Slide 1 is the
-  intro ("Look, I'm FEIHEI here." + tagline pills + short bio), the rest are work
+  intro ("Look, I'm FEIHEI here." + one short bio paragraph), the rest are work
   categories. Dots in `#slide-nav` are built by `js/main.js` from the active
   language's slides
 - **Cards**: each work card is `<a class="img_box" href="...">` containing a
