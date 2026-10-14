@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- ResoZ: audio workstation window with a waveform. White on transparent, matching homepage card art. -->
+<svg width="300" height="300" viewBox="0 0 300 300" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <g id="window" fill="none" stroke="#ffffff" stroke-width="13" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="40" y="52" width="220" height="176" rx="18"/>
+  </g>
+  <g id="window-dots" fill="#ffffff">
+    <circle cx="68" cy="82" r="7"/>
+    <circle cx="92" cy="82" r="7"/>
+    <circle cx="116" cy="82" r="7"/>
+  </g>
+  <g id="waveform" fill="#ffffff">
+    <rect x="80"  y="143" width="14" height="30" rx="7"/>
+    <rect x="106" y="128" width="14" height="60" rx="7"/>
+    <rect x="132" y="113" width="14" height="90" rx="7"/>
+    <rect x="158" y="136" width="14" height="44" rx="7"/>
+    <rect x="184" y="120" width="14" height="76" rx="7"/>
+    <rect x="210" y="148" width="14" height="20" rx="7"/>
+  </g>
+</svg>

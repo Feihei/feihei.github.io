@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- PReferZ: chalkboard with chalk strokes. White on transparent, matching homepage card art. -->
+<svg width="300" height="300" viewBox="0 0 300 300" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <g id="board" fill="none" stroke="#ffffff" stroke-width="13" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="42" y="48" width="216" height="160" rx="14"/>
+    <path d="M 82 208 L 66 266"/>
+    <path d="M 218 208 L 234 266"/>
+    <path d="M 80 96 Q 105 76 130 96 T 180 96"/>
+  </g>
+  <g id="chalk-lines" fill="none" stroke="#ffffff" stroke-width="11" stroke-linecap="round">
+    <path d="M 80 140 L 168 140"/>
+    <path d="M 80 172 L 132 172"/>
+  </g>
+</svg>
