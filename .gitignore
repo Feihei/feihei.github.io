@@ -16,6 +16,9 @@ Desktop.ini
 # Agent workspace data
 .workbuddy/
 
+# Local backups (not deployed)
+_archive/
+
 # Logs & temp files
 *.log
 *.tmp
