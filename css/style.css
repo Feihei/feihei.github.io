@@ -218,17 +218,19 @@ a{
   color: var(--color-ink-dim);
 }
 
-/* Card grid: responsive column count, no floats */
+/* Card rows: wrapping flex keeps every row (incl. partial last rows) centered */
 .container{
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
-  gap: 1.25em;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  gap: 1.25em;
   width: min(90%, 70em);
   margin: 0 auto;
 }
 
 .img_box{
+  flex: 1 0 15em;    /* grow to fill complete rows, never shrink before wrapping */
+  max-width: 17.5em; /* cap growth so partial rows stay compact and centered */
   display: block;
   background: linear-gradient(160deg, var(--color-bg-raised), var(--color-bg));
   border: 2px solid var(--color-ink);
@@ -357,7 +359,10 @@ body::after{
     padding: 80px 5vw 40px;
   }
   .container {
-    grid-template-columns: repeat(auto-fill, minmax(11em, 1fr));
     gap: 0.9em;
+  }
+  .img_box {
+    flex-basis: 11em;
+    max-width: none;
   }
 }
