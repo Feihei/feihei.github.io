@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Blender ABM Sim: wireframe cube with agent dots -->
+<svg width="300" height="300" viewBox="0 0 79.375 79.375" xmlns="http://www.w3.org/2000/svg">
+  <!-- isometric cube -->
+  <g fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M 18.4 23.5 L 39.7 12 L 61 23.5 L 39.7 35 Z"/>
+    <path d="M 18.4 23.5 V 45.5"/>
+    <path d="M 61 23.5 V 45.5"/>
+    <path d="M 39.7 35 V 57"/>
+    <path d="M 18.4 45.5 L 39.7 57 L 61 45.5"/>
+  </g>
+  <!-- agents on faces -->
+  <g fill="#ffffff">
+    <circle cx="39.7" cy="23.5" r="2.6"/>
+    <circle cx="29" cy="36" r="2.6"/>
+    <circle cx="50.4" cy="36" r="2.6"/>
+    <circle cx="14" cy="10" r="2.6"/>
+  </g>
+  <!-- one agent moving in -->
+  <path d="M 17 12.5 L 30 19" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 3"/>
+</svg>

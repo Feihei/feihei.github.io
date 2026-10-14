@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- FDZ Pixel Font: pixel letter A on a baseline -->
+<svg width="300" height="300" viewBox="0 0 79.375 79.375" xmlns="http://www.w3.org/2000/svg">
+  <g fill="#ffffff">
+    <!-- row 0 -->
+    <rect x="27.7" y="17.7" width="7.4" height="7.4"/>
+    <rect x="35.7" y="17.7" width="7.4" height="7.4"/>
+    <rect x="43.7" y="17.7" width="7.4" height="7.4"/>
+    <!-- row 1 -->
+    <rect x="19.7" y="25.7" width="7.4" height="7.4"/>
+    <rect x="51.7" y="25.7" width="7.4" height="7.4"/>
+    <!-- row 2 -->
+    <rect x="19.7" y="33.7" width="7.4" height="7.4"/>
+    <rect x="27.7" y="33.7" width="7.4" height="7.4"/>
+    <rect x="35.7" y="33.7" width="7.4" height="7.4"/>
+    <rect x="43.7" y="33.7" width="7.4" height="7.4"/>
+    <rect x="51.7" y="33.7" width="7.4" height="7.4"/>
+    <!-- row 3 -->
+    <rect x="19.7" y="41.7" width="7.4" height="7.4"/>
+    <rect x="51.7" y="41.7" width="7.4" height="7.4"/>
+    <!-- row 4 -->
+    <rect x="19.7" y="49.7" width="7.4" height="7.4"/>
+    <rect x="51.7" y="49.7" width="7.4" height="7.4"/>
+  </g>
+  <!-- baseline -->
+  <path d="M 16 61 H 63" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/>
+</svg>

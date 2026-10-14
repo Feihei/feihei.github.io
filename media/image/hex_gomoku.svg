@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Hex Gomoku: hexagon board with stones -->
+<svg width="300" height="300" viewBox="0 0 79.375 79.375" xmlns="http://www.w3.org/2000/svg">
+  <g fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">
+    <!-- three hexes in a row -->
+    <path d="M 24.1 30.7 L 16.3 35.2 L 16.3 44.2 L 24.1 48.7 L 31.9 44.2 L 31.9 35.2 Z"/>
+    <path d="M 39.7 30.7 L 31.9 35.2 L 31.9 44.2 L 39.7 48.7 L 47.5 44.2 L 47.5 35.2 Z"/>
+    <path d="M 55.3 30.7 L 47.5 35.2 L 47.5 44.2 L 55.3 48.7 L 63.1 44.2 L 63.1 35.2 Z"/>
+    <!-- one hex above, suggesting the grid continues -->
+    <path d="M 47.5 17.2 L 39.7 21.7 L 39.7 30.7 L 47.5 35.2 L 55.3 30.7 L 55.3 21.7 Z"/>
+  </g>
+  <!-- stones -->
+  <circle cx="24.1" cy="39.7" r="3.2" fill="#ffffff"/>
+  <circle cx="39.7" cy="39.7" r="3.2" fill="none" stroke="#ffffff" stroke-width="2.4"/>
+  <circle cx="47.5" cy="26.2" r="3.2" fill="#ffffff"/>
+</svg>

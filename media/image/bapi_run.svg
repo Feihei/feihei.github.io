@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Bapi Run: chubby runner leaping over a gap -->
+<svg width="300" height="300" viewBox="0 0 79.375 79.375" xmlns="http://www.w3.org/2000/svg">
+  <!-- speed lines -->
+  <g stroke="#ffffff" stroke-width="2.4" stroke-linecap="round">
+    <path d="M 8 20 H 20"/>
+    <path d="M 5 28 H 16"/>
+  </g>
+  <!-- runner -->
+  <circle cx="47" cy="15.5" r="4.6" fill="#ffffff"/>
+  <ellipse cx="40" cy="28.5" rx="9" ry="11" fill="#ffffff" transform="rotate(18 40 28.5)"/>
+  <g fill="none" stroke="#ffffff" stroke-linecap="round">
+    <path d="M 46.5 21 C 51 19.5, 55 16.5, 57.5 12.5" stroke-width="3.2"/>
+    <path d="M 34 22 C 30 25, 26.5 29, 25 33" stroke-width="3.2"/>
+    <path d="M 44 38 C 50 41, 53.5 45.5, 54.5 52" stroke-width="3.6"/>
+    <path d="M 37 38.5 C 32 44, 26 46.5, 20.5 45" stroke-width="3.6"/>
+  </g>
+  <!-- ground with a gap to jump over -->
+  <g stroke="#ffffff" stroke-width="2.4" stroke-linecap="round">
+    <path d="M 10 62 H 30"/>
+    <path d="M 50 62 H 70"/>
+  </g>
+</svg>

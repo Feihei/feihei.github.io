@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Game Portfolio: gamepad -->
+<svg width="300" height="300" viewBox="0 0 79.375 79.375" xmlns="http://www.w3.org/2000/svg">
+  <!-- gamepad body -->
+  <path d="M 22 28 H 57.5 C 66 28 71 34 71.5 42 C 71.8 47.5 70 54 66 54.5 C 62.5 55 60.5 51.5 58.5 48.5 C 57 46.2 55.5 45.5 52 45.5 H 27.5 C 24 45.5 22.5 46.2 21 48.5 C 19 51.5 17 55 13.5 54.5 C 9.5 54 7.7 47.5 8 42 C 8.5 34 13.5 28 22 28 Z"
+        fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round"/>
+  <!-- d-pad -->
+  <g fill="#ffffff">
+    <rect x="22.5" y="33.5" width="4.5" height="14"/>
+    <rect x="17.5" y="38.5" width="14.5" height="4.5"/>
+  </g>
+  <!-- buttons -->
+  <g fill="#ffffff">
+    <circle cx="52.5" cy="35.5" r="2.8"/>
+    <circle cx="60" cy="40" r="2.8"/>
+    <circle cx="52.5" cy="44.5" r="2.8"/>
+  </g>
+</svg>

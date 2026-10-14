@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Ladybug Tools in Blender: simple ladybug -->
+<svg width="300" height="300" viewBox="0 0 79.375 79.375" xmlns="http://www.w3.org/2000/svg">
+  <!-- antennae -->
+  <g fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round">
+    <path d="M 36.5 16 C 34.5 12.5, 32 10.5, 29 9.5"/>
+    <path d="M 43 16 C 45 12.5, 47.5 10.5, 50.5 9.5"/>
+  </g>
+  <circle cx="28.6" cy="9.3" r="1.4" fill="#ffffff"/>
+  <circle cx="51" cy="9.3" r="1.4" fill="#ffffff"/>
+  <!-- head -->
+  <circle cx="39.7" cy="21" r="6.2" fill="#ffffff"/>
+  <!-- body -->
+  <circle cx="39.7" cy="45" r="17.5" fill="none" stroke="#ffffff" stroke-width="2.4"/>
+  <path d="M 39.7 27.5 V 62.5" stroke="#ffffff" stroke-width="2.4"/>
+  <!-- wing spots -->
+  <g fill="#ffffff">
+    <circle cx="31" cy="39" r="2.8"/>
+    <circle cx="48.5" cy="39" r="2.8"/>
+    <circle cx="33.5" cy="53.5" r="2.8"/>
+    <circle cx="46" cy="53.5" r="2.8"/>
+  </g>
+  <!-- legs -->
+  <g fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round">
+    <path d="M 22.5 36 L 16.5 32"/>
+    <path d="M 21.8 45 L 15 45"/>
+    <path d="M 23.5 53.5 L 17.5 57.5"/>
+    <path d="M 57 36 L 63 32"/>
+    <path d="M 57.6 45 L 64.5 45"/>
+    <path d="M 56 53.5 L 62 57.5"/>
+  </g>
+</svg>
